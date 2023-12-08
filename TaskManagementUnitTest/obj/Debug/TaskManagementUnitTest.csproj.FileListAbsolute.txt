@@ -1,0 +1,2 @@
+C:\Users\grtha\source\repos\TaskManagement\TaskManagementUnitTest\obj\Debug\TaskManagementUnitTest.csproj.AssemblyReference.cache
+C:\Users\grtha\source\repos\TaskManagement\TaskManagementUnitTest\obj\Debug\TaskManagementUnitTest.csproj.CoreCompileInputs.cache

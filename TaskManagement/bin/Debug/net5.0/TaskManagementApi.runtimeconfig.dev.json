@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\grtha\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\grtha\\.nuget\\packages"
+    ]
+  }
+}
