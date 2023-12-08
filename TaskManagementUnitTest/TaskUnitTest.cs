@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using TaskManagement.Controllers;
 using TaskManagementApi.Controllers;
+using TaskManagementApi.Models;
 
 namespace TaskManagementUnitTest
 {
@@ -8,10 +10,42 @@ namespace TaskManagementUnitTest
     public class TaskUnitTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void GetMethod()
         {
             TaskController taskController = new TaskController(null);
-            taskController.Get();
+            TaskController.Get();
+        }
+
+        [TestMethod]
+        public void PostMethod()
+        {
+            TaskController taskController = new TaskController(null);
+            Task task = new Task()
+            {
+                Title = "Test Task",
+                Description = "This is the test task",
+                StaffId = 1
+            };
+            taskController.Post(task);
+        }
+
+        [TestMethod]
+        public void PutMethod()
+        {
+            TaskController taskController = new TaskController(null);
+            Task task = new Task()
+            {
+                Title = "Test Task",
+                Description = "This is the test task"
+            };
+            taskController.Put(1, task);
+        }
+
+        [TestMethod]
+        public void DeleteMethod()
+        {
+            TaskController taskController = new TaskController(null);
+            taskController.Delete(1);
         }
     }
 }

@@ -6244,11 +6244,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\grtha\\source\\repos\\TaskManagement\\TaskManagement\\TaskManagementApi.csproj",
+      "projectUniqueName": "C:\\Users\\grtha\\source\\repos\\TaskManagement\\A00286390\\TaskManagement\\TaskManagementApi.csproj",
       "projectName": "TaskManagementApi",
-      "projectPath": "C:\\Users\\grtha\\source\\repos\\TaskManagement\\TaskManagement\\TaskManagementApi.csproj",
+      "projectPath": "C:\\Users\\grtha\\source\\repos\\TaskManagement\\A00286390\\TaskManagement\\TaskManagementApi.csproj",
       "packagesPath": "C:\\Users\\grtha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\grtha\\source\\repos\\TaskManagement\\TaskManagement\\obj\\",
+      "outputPath": "C:\\Users\\grtha\\source\\repos\\TaskManagement\\A00286390\\TaskManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\grtha\\AppData\\Roaming\\NuGet\\NuGet.Config",

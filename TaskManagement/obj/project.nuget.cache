@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2gO1ZOcGIdu0wBVpRrESJBsFls+R86CP6I9x1zTB1dsyHSh4LpshA1xnWZTFkPsSCoST60ej6E0FuycLc13ffw==",
+  "dgSpecHash": "1TUkD1Utq8fiG1Hkf4O6ogmpde7WYANjAAZw3GHaD8Fxrctgd1fZNJyt8lmAYKkvraJmBDOzejXHBMLl5Pp5Nw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\grtha\\source\\repos\\TaskManagement\\TaskManagement\\TaskManagementApi.csproj",
+  "projectFilePath": "C:\\Users\\grtha\\source\\repos\\TaskManagement\\A00286390\\TaskManagement\\TaskManagementApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\grtha\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\grtha\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
