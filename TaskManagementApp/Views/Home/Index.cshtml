@@ -1,0 +1,211 @@
+﻿@model TaskManagementApp.Models.HomeViewModel
+@section Styles {
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-10">
+                        <h4 class="card-title">List of Tasks</h4>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-info mb-3" data-toggle="modal" data-target="#add-contact">Add New Task</button>
+                    </div>
+                </div>
+
+                <div class="table-responsive" style="margin-bottom:15px">
+                    <table id="demo-foo-addrow" class="table m-t-30 no-wrap table-hover contact-list" style="width: 100%" data-page-size="10">
+                        <thead style="background-color: #0096FF; color:white">
+                            <tr>
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Assigned To</th>
+                                <th>Status</th>
+                                <th>Act</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int i = 0;
+                                foreach (var task in Model.Tasks)
+                                {
+                                    i++;
+                                    <tr>
+                                        <td>@task.Id</td>
+                                        <td>@task.Title</td>
+                                        <td>@task.Description</td>
+                                        <td>@task.Staff.Name</td>
+                                        <td>@task.Status</td>
+                                        <td>
+                                            <button id="EditUser" type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-target="#edit-contact-@i" data-toggle="modal" data-original-title="Edit"><i class="ti-pencil" aria-hidden="true"></i></button>
+                                            <form class="form-horizontal form-material" method="post" action="@Url.Action("Delete","Home")">
+                                                <input type="text" name="Id" value="@task.Id" hidden />
+                                                <button type="submit" onclick="return confirm('Are you sure to delete?');" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn"><i class="ti-trash" aria-hidden="true"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+
+                                    @*************************************@
+                                    <div id="edit-contact-@i" class="modal fade in" style="margin-top:10%" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Task Record</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                </div>
+                                                <form class="form-horizontal form-material" method="post" action="@Url.Action("Edit","Home")">
+                                                    <div class="modal-body">
+                                                        <div class="form-group row">
+                                                            <input type="text" name="Id" value="@task.Id" hidden />
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Title</label><span style="color:red">*</span>
+                                                                    <input name="Title" type="text" class="form-control" required placeholder="Title" value="@task.Title">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Description</label><span style="color:red">*</span>
+                                                                    <input name="Description" type="text" class="form-control" required placeholder="Description" value="@task.Description">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Assigned To</label><span style="color:red">*</span>
+                                                                    <Select name="StaffId" class="form-control" required>
+                                                                        @foreach (var staff in Model.Staffs)
+                                                                        {
+                                                                            if (task.StaffId == staff.Id)
+                                                                            {
+                                                                                <option value="@staff.Id" selected>@staff.Name</option>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <option value="@staff.Id">@staff.Name</option>
+                                                                            }
+                                                                        }
+                                                                    </Select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Status</label><span style="color:red">*</span>
+                                                                    <Select name="Status" class="form-control" required>
+                                                                        @if (task.Status == "New")
+                                                                        {
+                                                                            <option value="New" selected>New</option>
+                                                                            <option value="In-process">In-process</option>
+                                                                            <option value="Completed">Completed</option>
+                                                                        }
+                                                                        else if (task.Status == "In-process")
+                                                                        {
+                                                                            <option value="New">New</option>
+                                                                            <option value="In-process" selected>In-process</option>
+                                                                            <option value="Completed">Completed</option>
+                                                                        }
+                                                                        else if (task.Status == "Completed")
+                                                                        {
+                                                                            <option value="New">New</option>
+                                                                            <option value="In-process">In-process</option>
+                                                                            <option value="Completed" selected>Completed</option>                                                                            
+                                                                        }
+                                                                    </Select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                        <button type="submit" onclick="return confirm('Are you sure to save?');" class="btn btn-info">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    @* ************************************@
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="7">
+                                    <div class="">
+                                        <nav aria-label="Page navigation example">
+                                            <ul class="pagination float-right"></ul>
+                                        </nav>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    @*************************************@
+                    <div id="add-contact" class="modal fade in" style="margin-top:10%" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Add New Task</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+                                <form class="form-horizontal form-material" method="post" action="@Url.Action("Add","Home")">
+                                    <div class="modal-body">
+                                        <div class="form-group row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Title</label><span style="color:red">*</span>
+                                                    <input name="Title" type="text" class="form-control" required placeholder="Title">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Description</label><span style="color:red">*</span>
+                                                    <input name="Description" type="text" class="form-control" required placeholder="Description">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Assigned To</label><span style="color:red">*</span>
+                                                    <Select name="StaffId" class="form-control" required>
+                                                        @foreach(var staff in Model.Staffs)
+                                                        {
+                                                            <option value="@staff.Id">@staff.Name</option>
+                                                        }
+                                                    </Select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Status</label><span style="color:red">*</span>
+                                                    <Select name="Status" class="form-control" required>
+                                                        <option value="New" selected>New</option>
+                                                        <option value="In-process">In-process</option>
+                                                        <option value="Completed">Completed</option>
+                                                    </Select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" onclick="return confirm('Are you sure to add?');" class="btn btn-info">Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    @* ************************************@
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+}

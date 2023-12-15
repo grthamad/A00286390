@@ -12,14 +12,14 @@ namespace TaskManagementUnitTest
         [TestMethod]
         public void GetMethod()
         {
-            StaffController staffController = new StaffController(null);
+            StaffController staffController = new StaffController();
             staffController.Get();
         }
 
         [TestMethod]
         public void PostMethod()
         {
-            StaffController staffController = new StaffController(null);
+            StaffController staffController = new StaffController();
             Staff staff = new Staff()
             {
                 Name = "Test",
@@ -31,7 +31,7 @@ namespace TaskManagementUnitTest
         [TestMethod]
         public void PutMethod()
         {
-            StaffController staffController = new StaffController(null);
+            StaffController staffController = new StaffController();
             Staff staff = new Staff()
             {
                 Name = "Test",

@@ -12,14 +12,14 @@ namespace TaskManagementUnitTest
         [TestMethod]
         public void GetMethod()
         {
-            TaskController taskController = new TaskController(null);
+            TaskController taskController = new TaskController();
             TaskController.Get();
         }
 
         [TestMethod]
         public void PostMethod()
         {
-            TaskController taskController = new TaskController(null);
+            TaskController taskController = new TaskController();
             Task task = new Task()
             {
                 Title = "Test Task",
@@ -32,7 +32,7 @@ namespace TaskManagementUnitTest
         [TestMethod]
         public void PutMethod()
         {
-            TaskController taskController = new TaskController(null);
+            TaskController taskController = new TaskController();
             Task task = new Task()
             {
                 Title = "Test Task",
@@ -44,7 +44,7 @@ namespace TaskManagementUnitTest
         [TestMethod]
         public void DeleteMethod()
         {
-            TaskController taskController = new TaskController(null);
+            TaskController taskController = new TaskController();
             taskController.Delete(1);
         }
     }

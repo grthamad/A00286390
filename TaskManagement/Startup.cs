@@ -14,7 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TaskManagementApi.Models;
 
-namespace TaskManagement
+namespace TaskManagementApi
 {
     public class Startup
     {
@@ -29,7 +29,6 @@ namespace TaskManagement
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<TaskManagementDbContext>(item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

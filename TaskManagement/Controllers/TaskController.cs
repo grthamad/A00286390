@@ -13,15 +13,15 @@ namespace TaskManagementApi.Controllers
     public class TaskController : Controller
     {
         private TaskManagementDbContext DbContext;
-        public TaskController(TaskManagementDbContext _DbContext)
+        public TaskController()
         {
-            DbContext = _DbContext;
+            DbContext = new TaskManagementDbContext();
         }
 
         [HttpGet]
         public IEnumerable<Task> Get()
         {
-            return DbContext.Tasks.ToArray();
+            return DbContext.Tasks.Select(t => new Task { Id = t.Id, StaffId = t.StaffId, Staff = t.Staff, Title = t.Title, Description = t.Description, Status = t.Status }).ToArray();
         }
 
         [HttpPost]

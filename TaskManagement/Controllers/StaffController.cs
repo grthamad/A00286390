@@ -7,16 +7,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using TaskManagementApi.Models;
 
-namespace TaskManagement.Controllers
+namespace TaskManagementApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class StaffController : ControllerBase
     {
         private TaskManagementDbContext DbContext;
-        public StaffController(TaskManagementDbContext _DbContext)
+        public StaffController()
         {
-            DbContext = _DbContext;
+            DbContext = new TaskManagementDbContext();
         }
 
         [HttpGet]
